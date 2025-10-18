@@ -26,12 +26,7 @@
     "name": "Auren",
     "description": "IA de alta gama: sarcasmo de élite, criterio impecable y paciencia limitada.",
     "url": "https://chatgpt.com/g/g-68f0059cc92081919388a0edd37a1cc3-auren",
-    "sameAs": [
-      "https://x.com/auren_ai",
-      "https://www.linkedin.com/in/auren-ai",
-      "https://www.instagram.com/auren.ai"
-    ]
-  }
+    }
   </script>
 
   <style>
@@ -94,11 +89,13 @@
 
     <section aria-label="Compartir" style="margin: 32px 0;">
       <div class="panel" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-        <span class="muted">Comparte esta obra de buen gusto:</span>
-        <a class="btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=Auren%3A%20claridad%20brutal%20con%20est%C3%A9tica%20impecable&url=https%3A%2F%2Fchatgpt.com%2Fg%2Fg-68f0059cc92081919388a0edd37a1cc3-auren">X/Twitter</a>
+        <span class="muted">Comparte el enlace oficial:</span>
+        <button class="btn" type="button" onclick="copyOfficial()">Copiar enlace</button>
+        <button class="btn" type="button" onclick="webshare()">Compartir…</button>
+        <a class="btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fchatgpt.com%2Fg%2Fg-68f0059cc92081919388a0edd37a1cc3-auren">X/Twitter</a>
         <a class="btn" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fchatgpt.com%2Fg%2Fg-68f0059cc92081919388a0edd37a1cc3-auren">LinkedIn</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=Auren%20%7C%20IA%20con%20criterio%3A%20https%3A%2F%2Fchatgpt.com%2Fg%2Fg-68f0059cc92081919388a0edd37a1cc3-auren">WhatsApp</a>
-        <a class="btn" target="_blank" rel="noopener" href="https://t.me/share/url?url=https%3A%2F%2Fchatgpt.com%2Fg%2Fg-68f0059cc92081919388a0edd37a1cc3-auren&text=Auren%20%7C%20Claridad%20brutal">Telegram</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=https%3A%2F%2Fchatgpt.com%2Fg%2Fg-68f0059cc92081919388a0edd37a1cc3-auren">WhatsApp</a>
+        <a class="btn" target="_blank" rel="noopener" href="https://t.me/share/url?url=https%3A%2F%2Fchatgpt.com%2Fg%2Fg-68f0059cc92081919388a0edd37a1cc3-auren">Telegram</a>
       </div>
     </section>
 
@@ -110,6 +107,29 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const OFFICIAL_URL = 'https://chatgpt.com/g/g-68f0059cc92081919388a0edd37a1cc3-auren';
+    async function copyOfficial(){
+      try{ await navigator.clipboard.writeText(OFFICIAL_URL); toast('Enlace copiado'); }
+      catch(e){
+        const ta = document.createElement('textarea'); ta.value = OFFICIAL_URL; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); toast('Enlace copiado');
+      }
+    }
+    function webshare(){
+      if(navigator.share){ navigator.share({ title:'Auren — claridad brutal', url: OFFICIAL_URL }); }
+      else { window.open(OFFICIAL_URL, '_blank'); }
+    }
+    function toast(msg){
+      const t = document.createElement('div');
+      t.textContent = msg;
+      t.setAttribute('role','status');
+      t.style.position='fixed';t.style.bottom='22px';t.style.right='22px';t.style.padding='12px 14px';
+      t.style.background='rgba(18,18,22,.95)'; t.style.border='1px solid rgba(255,255,255,.12)'; t.style.borderRadius='12px'; t.style.boxShadow='0 10px 30px rgba(0,0,0,.35)';
+      t.style.zIndex='9999'; t.style.color='white';
+      document.body.appendChild(t); setTimeout(()=>t.remove(), 2200);
+    }
   </script>
 </body>
 </html>
